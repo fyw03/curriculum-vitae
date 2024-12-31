@@ -1,0 +1,155 @@
+<view class="form-container">
+  <view class="section">
+    <view class="section-title">基本信息</view>
+    <view class="input-group">
+      <view class="input-item">
+        <text class="input-label">姓名：</text>
+        <input 
+          placeholder="请输入姓名" 
+          data-field="name"
+          bindinput="handleInput"
+          value="{{formData.basicInfo.name}}"
+        />
+      </view>
+      <view class="input-item">
+        <text class="input-label">年龄：</text>
+        <input 
+          placeholder="请输入年龄" 
+          type="number"
+          data-field="age"
+          bindinput="handleInput"
+          value="{{formData.basicInfo.age}}"
+        />
+      </view>
+      <view class="input-item">
+        <text class="input-label">手机号：</text>
+        <input 
+          placeholder="请输入手机号" 
+          type="number"
+          data-field="phone"
+          bindinput="handleInput"
+          value="{{formData.basicInfo.phone}}"
+        />
+      </view>
+      <view class="input-item">
+        <text class="input-label">邮箱：</text>
+        <input 
+          placeholder="请输入邮箱" 
+          data-field="email"
+          bindinput="handleInput"
+          value="{{formData.basicInfo.email}}"
+        />
+      </view>
+      <view class="input-item">
+        <text class="input-label">学历：</text>
+        <input 
+          placeholder="请输入学历" 
+          data-field="education"
+          bindinput="handleInput"
+          value="{{formData.basicInfo.education}}"
+        />
+      </view>
+      <view class="input-item">
+        <text class="input-label">学校：</text>
+        <input 
+          placeholder="请输入学校" 
+          data-field="school"
+          bindinput="handleInput"
+          value="{{formData.basicInfo.school}}"
+        />
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">求职意向</view>
+    <view class="input-group">
+      <view class="input-item">
+        <text class="input-label">期望薪资：</text>
+        <input 
+          placeholder="请输入期望薪资 (例：8k-12k)" 
+          data-field="salary"
+          bindinput="handleJobIntentionInput"
+          value="{{formData.jobIntention.salary}}"
+        />
+      </view>
+      <view class="input-item">
+        <text class="input-label">期望岗位：</text>
+        <input 
+          placeholder="请输入期望岗位" 
+          data-field="position"
+          bindinput="handleJobIntentionInput"
+          value="{{formData.jobIntention.position}}"
+        />
+      </view>
+      <view class="input-item">
+        <text class="input-label">期望地点：</text>
+        <input 
+          placeholder="请输入期望地点" 
+          data-field="location"
+          bindinput="handleJobIntentionInput"
+          value="{{formData.jobIntention.location}}"
+        />
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">工作经历</view>
+    <view 
+      class="work-experience" 
+      wx:for="{{formData.workExperience}}" 
+      wx:key="index"
+    >
+      <view class="work-experience-header">
+        <text>工作经历 {{index + 1}}</text>
+        <button class="delete-btn" bindtap="deleteWorkExperience" data-index="{{index}}">删除</button>
+      </view>
+      <input 
+        placeholder="公司名称" 
+        data-index="{{index}}" 
+        data-field="company"
+        bindinput="handleWorkInput"
+        value="{{item.company}}"
+      />
+      <input 
+        placeholder="职位" 
+        data-index="{{index}}" 
+        data-field="position"
+        bindinput="handleWorkInput"
+        value="{{item.position}}"
+      />
+      <textarea 
+        placeholder="工作描述" 
+        data-index="{{index}}" 
+        data-field="description"
+        bindinput="handleWorkInput"
+        value="{{item.description}}"
+      />
+    </view>
+    <view class="button-group" wx:if="{{formData.workExperience.length < 5}}">
+      <button class="add-btn" bindtap="addWorkExperience">添加工作经历</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">技能特长</view>
+    <textarea 
+      placeholder="请输入您的技能特长，例：熟练掌握前端开发技术，包括HTML、CSS、JavaScript等" 
+      bindinput="handleSkillsInput"
+      value="{{formData.skills}}"
+    />
+  </view>
+
+  <view class="section">
+    <view class="section-title">自我评价</view>
+    <textarea 
+      placeholder="请输入自我评价，例：性格开朗，善于沟通，有较强的学习能力和团队协作精神" 
+      bindinput="handleEvaluationInput"
+      value="{{formData.selfEvaluation}}"
+    />
+  </view>
+
+  <view class="bottom-space"></view>
+  <button class="submit-btn" bindtap="submitForm">生成简历</button>
+</view> 

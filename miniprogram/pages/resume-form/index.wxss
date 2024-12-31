@@ -1,0 +1,90 @@
+.form-container {
+  padding: 20rpx;
+  background: #e0f7fa;
+  min-height: 100vh;
+}
+
+.section {
+  margin-bottom: 20rpx;
+  background: #ffffff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20rpx;
+}
+
+.input-item {
+  margin-bottom: 16rpx;
+}
+
+.input-label {
+  font-size: 28rpx;
+  color: #555;
+  margin-bottom: 8rpx;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12rpx;
+  font-size: 28rpx;
+  color: #333;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #00796b;
+  background: #fff;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #00796b;
+  border-radius: 8rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 121, 107, 0.2);
+  transition: background 0.3s ease;
+}
+
+.submit-btn:active {
+  background: #005f56;
+}
+
+.delete-btn, .add-btn {
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background: #f44336;
+  border-radius: 8rpx;
+  text-align: center;
+  box-shadow: 0 2rpx 4rpx rgba(244, 67, 54, 0.2);
+  transition: background 0.3s ease;
+}
+
+.delete-btn:active, .add-btn:active {
+  background: #d32f2f;
+}
+
+.add-btn {
+  background: #4caf50;
+}
+
+.add-btn:active {
+  background: #388e3c;
+} 

@@ -1,0 +1,160 @@
+<!--pages/resume/index.wxml-->
+<view class="container">
+  <!-- 固定顶部导航 -->
+  <view class="nav-tabs">
+    <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="0">
+      个人简历
+    </view>
+    <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="1">
+      自我介绍
+    </view>
+  </view>
+
+  <!-- 音乐控制按钮 -->
+  <view class="music-control" bindtap="toggleMusic">
+    <view class="music-icon {{isPlaying ? 'rotate' : ''}}">
+      <text class="iconfont">♫</text>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="resume-content {{currentTab !== 0 ? 'hidden' : ''}}" hidden="{{currentTab !== 0}}">
+    <view class="basic-info">
+      <view class="name">{{resumeData.basicInfo.name}}</view>
+      <view class="info-item">
+        <image class="info-item-icon" src="/images/index/age.png" />
+        <text>年龄：{{resumeData.basicInfo.age}}岁</text>
+      </view>
+      <view class="info-item">
+        <image class="info-item-icon" src="/images/index/phone.png" />
+        <text>电话：{{resumeData.basicInfo.phone}}</text>
+      </view>
+      <view class="info-item">
+        <image class="info-item-icon" src="/images/index/email.png" />
+        <text>邮箱：{{resumeData.basicInfo.email}}</text>
+      </view>
+      <view class="info-item">
+        <image class="info-item-icon" src="/images/index/graduation-cap.png" />
+        <text>学历：{{resumeData.basicInfo.education}}</text>
+      </view>
+      <view class="info-item">
+        <image class="info-item-icon" src="/images/index/school.png" />
+        <text>学校：{{resumeData.basicInfo.school}}</text>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">
+        <image class="info-item-icon" src="/images/index/target.png" />
+        <text>求职意向</text>
+      </view>
+      <view class="job-intention">
+        <view class="info-item">
+          <text class="label">期望薪资：</text>
+          <text>{{resumeData.jobIntention.salary}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">期望岗位：</text>
+          <text>{{resumeData.jobIntention.position}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">期望地点：</text>
+          <text>{{resumeData.jobIntention.location}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">
+        <image class="info-item-icon" src="/images/index/briefcase.png" />
+        <text>工作经历</text>
+      </view>
+      <view class="work-list">
+        <view class="work-item" wx:for="{{resumeData.workExperience}}" wx:key="index" bindtap="goToDetail" data-index="{{index}}">
+          <view class="work-header">
+            <view class="work-company">{{item.company}}</view>
+            <view class="work-time">{{item.startTime}} - {{item.endTime}}</view>
+          </view>
+          <view class="work-position">{{item.position}}</view>
+          <view class="work-description">{{item.description}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">
+        <image class="info-item-icon" src="/images/index/project.png" />
+        <text>项目经验</text>
+      </view>
+      <view class="project-list">
+        <view class="project-item" wx:for="{{resumeData.projectExperience}}" wx:key="index">
+          <view class="project-header">
+            <view class="project-name">{{item.name}}</view>
+            <view class="project-time">{{item.time}}</view>
+          </view>
+          <view class="project-role">{{item.role}}</view>
+          <view class="project-description">{{item.description}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">
+        <image class="info-item-icon" src="/images/index/honor.png" />
+        <text>个人荣誉</text>
+      </view>
+      <view class="honor-list">
+        <view class="honor-item" wx:for="{{resumeData.honors}}" wx:key="index">
+          <view class="honor-header">
+            <view class="honor-name">{{item.name}}</view>
+            <view class="honor-time">{{item.time}}</view>
+          </view>
+          <view class="honor-description">{{item.description}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">
+        <image class="info-item-icon" src="/images/index/skill.png" />
+        <text>技能特长</text>
+      </view>
+      <view class="content">{{resumeData.skills}}</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">
+        <image class="info-item-icon" src="/images/index/resa.png" />
+        <text>自我评价</text>
+      </view>
+      <view class="content">{{resumeData.selfEvaluation}}</view>
+    </view>
+  </view>
+
+  <!-- 自我介绍视频内容 -->
+  <view wx:if="{{currentTab === 1}}" style="margin-top: 150rpx;">
+    <video 
+      wx:if="{{videoInfo && videoInfo.src}}"
+      src="{{videoInfo.src}}"
+      controls
+      enable-choose-video
+    ></video>
+    <view wx:else>暂无视频</view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text>加载中...</text>
+  </view>
+
+  <!-- 错误提示 -->
+  <view class="error" wx:if="{{error}}">
+    <text>{{error}}</text>
+    <button bindtap="loadData" class="retry-btn">重试</button>
+  </view>
+</view>

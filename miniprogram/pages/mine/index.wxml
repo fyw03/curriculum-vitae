@@ -1,0 +1,206 @@
+<view class="container">
+  <!-- 顶部导航 -->
+  <view class="nav-tabs">
+    <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="0">
+      个人信息
+    </view>
+    <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="1">
+      背景音乐
+    </view>
+    <view class="tab-item {{currentTab === 2 ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="2">
+      介绍视频
+    </view>
+  </view>
+
+  <!-- 个人信息表单 -->
+  <view class="content-section" hidden="{{currentTab !== 0}}">
+    <form bindsubmit="submitForm">
+      <!-- 基本信息 -->
+      <view class="form-section">
+        <view class="section-title">基本信息</view>
+        <view class="form-item">
+          <text class="label">姓名</text>
+          <input name="basicInfo.name" value="{{formData.basicInfo.name}}" placeholder="请输入姓名" />
+        </view>
+        <view class="form-item">
+          <text class="label">年龄</text>
+          <input name="basicInfo.age" type="number" value="{{formData.basicInfo.age}}" placeholder="请输入年龄" />
+        </view>
+        <view class="form-item">
+          <text class="label">电话</text>
+          <input name="basicInfo.phone" type="number" value="{{formData.basicInfo.phone}}" placeholder="请输入电话" />
+        </view>
+        <view class="form-item">
+          <text class="label">邮箱</text>
+          <input name="basicInfo.email" value="{{formData.basicInfo.email}}" placeholder="请输入邮箱" />
+        </view>
+        <view class="form-item">
+          <text class="label">学历</text>
+          <input name="basicInfo.education" value="{{formData.basicInfo.education}}" placeholder="请输入学历" />
+        </view>
+        <view class="form-item">
+          <text class="label">学校</text>
+          <input name="basicInfo.school" value="{{formData.basicInfo.school}}" placeholder="请输入学校" />
+        </view>
+      </view>
+
+      <!-- 求职意向 -->
+      <view class="form-section">
+        <view class="section-title">求职意向</view>
+        <view class="form-item">
+          <text class="label">期望薪资</text>
+          <input name="jobIntention.salary" value="{{formData.jobIntention.salary}}" placeholder="请输入期望薪资" />
+        </view>
+        <view class="form-item">
+          <text class="label">期望岗位</text>
+          <input name="jobIntention.position" value="{{formData.jobIntention.position}}" placeholder="请输入期望岗位" />
+        </view>
+        <view class="form-item">
+          <text class="label">期望地点</text>
+          <input name="jobIntention.location" value="{{formData.jobIntention.location}}" placeholder="请输入期望地点" />
+        </view>
+      </view>
+
+      <!-- 工作经历 -->
+      <view class="form-section">
+        <view class="section-title">工作经历</view>
+        <view class="work-list">
+          <view class="work-item" wx:for="{{formData.workExperience}}" wx:key="index">
+            <view class="item-header">
+              <text class="item-title">工作经历 {{index + 1}}</text>
+              <button class="delete-btn" bindtap="deleteWorkExperience" data-index="{{index}}">删除</button>
+            </view>
+            <view class="form-item">
+              <text class="label">开始时间</text>
+              <input name="workExperience[{{index}}].startTime" value="{{item.startTime}}" placeholder="格式：2023-01" />
+            </view>
+            <view class="form-item">
+              <text class="label">结束时间</text>
+              <input name="workExperience[{{index}}].endTime" value="{{item.endTime}}" placeholder="格式：2023-12" />
+            </view>
+            <view class="form-item">
+              <text class="label">公司名称</text>
+              <input name="workExperience[{{index}}].company" value="{{item.company}}" placeholder="请输入公司名称" />
+            </view>
+            <view class="form-item">
+              <text class="label">职位</text>
+              <input name="workExperience[{{index}}].position" value="{{item.position}}" placeholder="请输入职位" />
+            </view>
+            <view class="form-item">
+              <text class="label">工作描述</text>
+              <textarea name="workExperience[{{index}}].description" value="{{item.description}}" placeholder="请输入工作描述" />
+            </view>
+          </view>
+        </view>
+        <button class="add-btn" bindtap="addWorkExperience">添加工作经历</button>
+      </view>
+
+      <!-- 项目经验 -->
+      <view class="form-section">
+        <view class="section-title">项目经验</view>
+        <view class="project-list">
+          <view class="project-item" wx:for="{{formData.projectExperience}}" wx:key="index">
+            <view class="item-header">
+              <text class="item-title">项目经验 {{index + 1}}</text>
+              <button class="delete-btn" bindtap="deleteProjectExperience" data-index="{{index}}">删除</button>
+            </view>
+            <view class="form-item">
+              <text class="label">项目名称</text>
+              <input name="projectExperience[{{index}}].name" value="{{item.name}}" placeholder="请输入项目名称" />
+            </view>
+            <view class="form-item">
+              <text class="label">担任角色</text>
+              <input name="projectExperience[{{index}}].role" value="{{item.role}}" placeholder="请输入担任角色" />
+            </view>
+            <view class="form-item">
+              <text class="label">项目时间</text>
+              <input name="projectExperience[{{index}}].time" value="{{item.time}}" placeholder="格式：2023-06 至 2023-09" />
+            </view>
+            <view class="form-item">
+              <text class="label">项目描述</text>
+              <textarea name="projectExperience[{{index}}].description" value="{{item.description}}" placeholder="请输入项目描述" />
+            </view>
+          </view>
+        </view>
+        <button class="add-btn" bindtap="addProjectExperience">添加项目经验</button>
+      </view>
+
+      <!-- 个人荣誉 -->
+      <view class="form-section">
+        <view class="section-title">个人荣誉</view>
+        <view class="honor-list">
+          <view class="honor-item" wx:for="{{formData.honors}}" wx:key="index">
+            <view class="item-header">
+              <text class="item-title">个人荣誉 {{index + 1}}</text>
+              <button class="delete-btn" bindtap="deleteHonor" data-index="{{index}}">删除</button>
+            </view>
+            <view class="form-item">
+              <text class="label">获奖时间</text>
+              <input name="honors[{{index}}].time" value="{{item.time}}" placeholder="格式：2023-05" />
+            </view>
+            <view class="form-item">
+              <text class="label">荣誉名称</text>
+              <input name="honors[{{index}}].name" value="{{item.name}}" placeholder="请输入荣誉名称" />
+            </view>
+            <view class="form-item">
+              <text class="label">荣誉描述</text>
+              <textarea name="honors[{{index}}].description" value="{{item.description}}" placeholder="请输入荣誉描述" />
+            </view>
+          </view>
+        </view>
+        <button class="add-btn" bindtap="addHonor">添加个人荣誉</button>
+      </view>
+
+      <!-- 技能特长 -->
+      <view class="form-section">
+        <view class="section-title">技能特长</view>
+        <textarea name="skills" value="{{formData.skills}}" placeholder="请输入技能特长" />
+      </view>
+
+      <!-- 自我评价 -->
+      <view class="form-section">
+        <view class="section-title">自我评价</view>
+        <textarea name="selfEvaluation" value="{{formData.selfEvaluation}}" placeholder="请输入自我评价" />
+      </view>
+
+      <button class="submit-btn" form-type="submit">保存</button>
+    </form>
+  </view>
+
+  <!-- 背景音乐修改 -->
+  <view class="content-section" hidden="{{currentTab !== 1}}">
+    <view class="music-info">
+      <text class="music-title">当前音乐：{{bgMusic.title || '未设置'}}</text>
+      <view class="music-controls">
+        <button class="btn" bindtap="chooseBgMusic">更换音乐</button>
+        <button class="btn" bindtap="previewMusic" wx:if="{{bgMusic.src}}">试听</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 视频修改 -->
+  <view class="content-section" hidden="{{currentTab !== 2}}">
+    <view class="video-info">
+      <view class="video-title">自我介绍视频</view>
+      <video 
+        wx:if="{{videoInfo && videoInfo.src}}"
+        src="{{videoInfo.src}}"
+        class="video-preview"
+        controls
+        enable-choose-video
+        bindchoosevideo="onChooseVideo"
+      ></video>
+      <view class="music-controls">
+        <view class="btn" bindtap="chooseVideo" wx:if="{{!videoInfo.src}}">上传视频</view>
+        <view class="btn" bindtap="chooseVideo" wx:else>更换视频</view>
+        <view class="btn" bindtap="clearVideo" wx:if="{{videoInfo.src}}">删除视频</view>
+      </view>
+    </view>
+  </view>
+</view> 

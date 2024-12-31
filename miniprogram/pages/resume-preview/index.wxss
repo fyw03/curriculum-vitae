@@ -1,0 +1,99 @@
+.preview-container {
+  padding: 20rpx;
+  background: #e0f7fa;
+  min-height: 100vh;
+}
+
+.resume-content {
+  background: #ffffff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.basic-info, .section {
+  margin-bottom: 20rpx;
+}
+
+.name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.info-item, .job-intention .info-item {
+  font-size: 28rpx;
+  color: #555;
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: center;
+}
+
+.info-item-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 8rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 20rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.6;
+  background: #f9f9f9;
+  padding: 12rpx;
+  border-radius: 8rpx;
+}
+
+.generate-btn {
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: #00796b;
+  color: #fff;
+  font-size: 32rpx;
+  padding: 24rpx 0;
+  border-radius: 42rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 121, 107, 0.3);
+  transition: background 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 2rpx;
+}
+
+.generate-btn:active {
+  background: #005f56;
+}
+
+.job-intention {
+  background: #f9fafb;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.job-intention .info-item {
+  margin-bottom: 16rpx;
+}
+
+.job-intention .label {
+  color: #111827;
+  font-weight: 500;
+  min-width: 160rpx;
+}
+
+.bottom-space {
+  height: 120rpx;
+} 

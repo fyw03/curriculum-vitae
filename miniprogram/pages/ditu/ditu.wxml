@@ -1,0 +1,59 @@
+<!--pages/ditu/ditu.wxml-->
+<view class="container">
+  <!-- 地图背景 -->
+  <map 
+    id="map"
+    longitude="{{longitude}}"
+    latitude="{{latitude}}"
+    scale="14"
+    markers="{{markers}}"
+    polyline="{{polyline}}"
+    show-location
+  ></map>
+
+  <!-- 顶部搜索 -->
+  <view class="search-container">
+    <input 
+      type="text"
+      placeholder="请输入目的地"
+      bindinput="onInput"
+      class="search-input"
+    />
+    <button 
+      bindtap="searchLocation"
+      class="search-button"
+    >搜索</button>
+  </view>
+
+  <!-- 底部控制区域 -->
+  <view class="controls-container">
+    <!-- 距离信息卡片 -->
+    <view class="distance-card" wx:if="{{distance}}">
+      <view class="distance-header">距离信息</view>
+      <view class="distance-content">
+        <view class="distance-item">
+          <text class="label">起点：</text>
+          <text class="value">{{distance.from}}</text>
+        </view>
+        <view class="distance-item">
+          <text class="label">终点：</text>
+          <text class="value">{{distance.to}}</text>
+        </view>
+        <view class="distance-value">
+          <text class="number">{{distance.value}}</text>
+          <text class="unit">公里</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部按钮 -->
+    <view class="button-container">
+      <button bindtap="getRoute" class="route-button">获取路线</button>
+      <button bindtap="calculateDistance" class="distance-button">直线距离</button>
+    </view>
+  </view>
+
+  <!-- 加载和错误提示 -->
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+  <view class="error-toast" wx:if="{{error}}">{{error}}</view>
+</view>

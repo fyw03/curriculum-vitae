@@ -1,0 +1,61 @@
+<!--pages/xinxi/xinxi.wxml-->
+<view class="container">
+  <!-- 新闻列表 -->
+  <scroll-view 
+    class="news-list" 
+    scroll-y 
+    enable-back-to-top
+    refresher-enabled="{{refresherEnabled}}"
+    refresher-triggered="{{triggered}}"
+    bindrefresherpulling="onRefresherPulling"
+    bindrefresherrefresh="onRefresherRefresh"
+    bindrefresherrestore="onRefresherRestore"
+    bindscrolltoupper="onScrollToUpper"
+    bindscrolltolower="onScrollToLower"
+    enhanced
+    bounces="{{false}}"
+    show-scrollbar="{{false}}"
+    fast-deceleration
+  >
+    <view 
+      wx:for="{{newsList}}" 
+      wx:key="id"
+      class="news-item"
+      bindtap="viewDetail"
+      data-url="{{item.url}}"
+      hover-class="news-item-hover"
+    >
+      <view class="news-content {{item.pic ? '' : 'no-image'}}">
+        <view class="news-title">{{item.title}}</view>
+        <view class="news-info">
+          <text class="news-source">{{item.src}}</text>
+          <text class="news-time">{{item.time}}</text>
+        </view>
+      </view>
+      <image 
+        wx:if="{{item.pic}}"
+        class="news-image" 
+        mode="aspectFill" 
+        src="{{item.pic}}"
+        lazy-load
+      />
+    </view>
+
+    <!-- 加载状态 -->
+    <view class="loading" wx:if="{{loading}}">
+      <view class="loading-icon"></view>
+      <text>加载中...</text>
+    </view>
+
+    <!-- 错误提示 -->
+    <view class="error" wx:if="{{error}}" bindtap="fetchNews">
+      <text>{{error}}</text>
+      <text class="retry">点击重试</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty" wx:if="{{!loading && !error && newsList.length === 0}}">
+      暂无新闻
+    </view>
+  </scroll-view>
+</view>

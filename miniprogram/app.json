@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/resume/index",
+    "pages/mine/index",
+    "pages/post/post",
+    "pages/ditu/ditu",
+    "pages/xinxi/xinxi",
+    "pages/post/post-comment/post-comment",
+    "pages/post/poat-detail/post-detail"
+  ],
+  "window": {
+    "backgroundColor": "#f0f7ff",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3b82f6",
+    "navigationBarTitleText": "我的简历",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3b82f6",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/resume/index",
+        "text": "我的简历",
+        "iconPath": "images/首页.png",
+        "selectedIconPath": "images/首页 (1).png"
+      },
+      {
+        "pagePath": "pages/post/post",
+        "text": "我的项目",
+        "iconPath": "images/项目.png",
+        "selectedIconPath": "images/项目 (1).png"
+      },
+      {
+        "pagePath": "pages/ditu/ditu",
+        "text": "地图",
+        "iconPath": "images/地图.png",
+        "selectedIconPath": "images/地图 (1).png"
+      },
+      {
+        "pagePath": "pages/xinxi/xinxi",
+        "text": "今日头条",
+        "iconPath": "images/新闻_o.png",
+        "selectedIconPath": "images/新闻_o (1).png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/我的.png",
+        "selectedIconPath": "images/我的 (1).png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio"],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+     }
+ },
+ "requiredPrivateInfos":[
+   "getLocation"
+ ]
+}
+
