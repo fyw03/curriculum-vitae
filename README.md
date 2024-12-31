@@ -64,6 +64,16 @@
 文件上传
 媒体文件处理
 这个项目是一个综合性的个人简历小程序，集成了简历展示、媒体播放、地图导航和新闻资讯等功能，提供了良好的用户体验和实用的功能特性。
+![屏幕截图 2024-12-31 152537](https://github.com/user-attachments/assets/0701cab9-d751-4063-8387-32309801f3c9)
+![屏幕截图 2024-12-31 152527](https://github.com/user-attachments/assets/8d410375-010c-4a92-b571-b74238815209)
+![屏幕截图 2024-12-31 152520](https://github.com/user-attachments/assets/712b8a2c-ee61-487f-aa70-ecf2400b944e)
+![屏幕截图 2024-12-31 152512](https://github.com/user-attachments/assets/2398d6cd-9ed2-4698-94b9-3d820e58e0b8)
+![屏幕截图 2024-12-31 152635](https://github.com/user-attachments/assets/ddca6e4e-e8f4-4c63-a1cb-4904bc06a12f)
+![屏幕截图 2024-12-31 152630](https://github.com/user-attachments/assets/21e77eac-bf99-47c6-99e2-07089a92ef0f)
+![屏幕截图 2024-12-31 152625](https://github.com/user-attachments/assets/cc5747de-fed9-4507-83d5-9c9c097c4c37)
+![屏幕截图 2024-12-31 152617](https://github.com/user-attachments/assets/923129b4-63d2-4f3d-b07a-2cea40f49425)
+![屏幕截图 2024-12-31 152605](https://github.com/user-attachments/assets/140e2a8f-42fe-420f-b484-68814e6a02a4)
+![屏幕截图 2024-12-31 152559](https://github.com/user-attachments/assets/ac368ef6-bce8-4ec0-91ed-360e0988df8c)
 
 
 
