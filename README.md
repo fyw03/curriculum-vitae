@@ -64,6 +64,8 @@
 文件上传
 媒体文件处理
 这个项目是一个综合性的个人简历小程序，集成了简历展示、媒体播放、地图导航和新闻资讯等功能，提供了良好的用户体验和实用的功能特性。
+
+
 ![屏幕截图 2024-12-31 152537](https://github.com/user-attachments/assets/0701cab9-d751-4063-8387-32309801f3c9)
 ![屏幕截图 2024-12-31 152527](https://github.com/user-attachments/assets/8d410375-010c-4a92-b571-b74238815209)
 ![屏幕截图 2024-12-31 152520](https://github.com/user-attachments/assets/712b8a2c-ee61-487f-aa70-ecf2400b944e)
